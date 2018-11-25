@@ -1,0 +1,279 @@
+,body,closed_at,comments,created_at,html_url,number,state,title,updated_at,closed_by,user,assignee,assignees,labels,milestone,pull_request
+341328385,"- fix bug #19992
+- 2 tests amended in frame/test_analytics.py and series/test_analytics.py
+- whatsnew entry added",2018-07-18 10:23:30,3,2018-07-15 15:18:30,https://github.com/pandas-dev/pandas/pull/21921,21921,closed,BUG:Clip with a list-like threshold with a nan is broken (GH19992),2018-07-18 10:23:47,jreback,makbigc,,,"['Bug', 'Missing-data']",0.23.4,https://github.com/pandas-dev/pandas/pull/21921
+341342552,"- [x] closes #21792
+- [ ] tests added / passed
+- [x] passes `git diff upstream/master -u -- ""*.py"" | flake8 --diff`
+- [x] whatsnew entry
+ 
+I see no simple solution on how to make a test for this without introducing a whole new ExtensionArray class that is actually of scalar type `'i'`.
+
+cc @jreback I'm wondering a bit why this has not yet been a problem for https://github.com/pandas-dev/pandas/pull/21160 
+
+I have check that this fixes the problems I'm seeing in `fletcher` on `int` and `float` dtypes.",,10,2018-07-15 18:49:01,https://github.com/pandas-dev/pandas/pull/21922,21922,open,Concatenation of series of differing types should lead to object,2018-11-21 15:42:35,,xhochy,,,"['Bug', 'ExtensionArray']",,https://github.com/pandas-dev/pandas/pull/21922
+341349059,"May close #21905, will need to check with OP.
+",2018-07-17 00:37:13,15,2018-07-15 20:16:15,https://github.com/pandas-dev/pandas/pull/21923,21923,closed,[BUG] change types to Py_ssize_t to fix #21905,2018-07-17 01:02:49,jreback,jbrockmendel,,,"['32bit', 'Bug']",0.24.0,https://github.com/pandas-dev/pandas/pull/21923
+341349603,"- [ ] <s>closes #16045</s><b>update</b>Not anymore
+- [x] passes `git diff upstream/master -u -- ""*.py"" | flake8 --diff`
+
+@jorisvandenbossche can you confirm this is what you had in mind in that issue?",2018-09-08 02:46:54,6,2018-07-15 20:24:21,https://github.com/pandas-dev/pandas/pull/21924,21924,closed,move rename functionality out of internals,2018-09-08 03:10:23,jreback,jbrockmendel,,,"['Internals', 'Refactor']",0.24.0,https://github.com/pandas-dev/pandas/pull/21924
+341355270,"Hi,
+
+The `corr` method for DataFrames is exceedingly useful, especially since one can specify methods other than the Pearson correlation.  I think it would be nice if this same argument were available when using `corrwith`.  Perhaps there is another workaround, but right now if one wants to calculate all the Spearman (say) correlations with a specific variable, it seems necessary to calculate the full Spearman correlation matrix and subset to the column you care about.
+
+Thanks.",,2,2018-07-15 21:50:46,https://github.com/pandas-dev/pandas/issues/21925,21925,open,Allow different methods of correlation when using corrwith,2018-11-06 03:52:01,,dsaxton,,,"['Apply', 'Enhancement']",Contributions Welcome,
+341365035,"There's a lot of duplication in the constructors and constructor-helpers.  This starts to whittle that down, writes some docstrings long the way.
+
+Also use `ExtensionOpsMixin` to define comparison operators on the EAMixin classes.
+
+We determined that the DatetimeIndex._local_timestamps method had an unecessary monotonicy check, so took that out.",2018-07-20 20:43:38,4,2018-07-16 00:26:50,https://github.com/pandas-dev/pandas/pull/21926,21926,closed,"Docstrings, de-duplicate EAMixin/DatetimeLikeIndex __new__ code",2018-07-20 21:03:21,jreback,jbrockmendel,,,"['Clean', 'ExtensionArray']",0.24.0,https://github.com/pandas-dev/pandas/pull/21926
+341379387,"https://travis-ci.org/MacPython/pandas-wheels/jobs/401351130
+
+seems this has been broken for 8 days
+
+maybe the recent cython changes?
+
+cc
+@jbrockmendel",2018-07-17 11:55:43,5,2018-07-16 03:13:53,https://github.com/pandas-dev/pandas/issues/21927,21927,closed,BLD: wheel building is broken,2018-07-17 11:55:43,jreback,jreback,,,['Build'],0.24.0,
+341380927,"- [x] closes #21918
+- [x] tests added / passed
+- [x] passes `git diff upstream/master -u -- ""*.py"" | flake8 --diff`
+- [ ] whatsnew entry - N/A
+
+Addresses most of the issues.  Left blowing away the old pickles for another issue which is still open.  ",2018-07-24 22:01:57,5,2018-07-16 03:25:41,https://github.com/pandas-dev/pandas/pull/21928,21928,closed,CLN: Address MulitIndex Test Follow Ups in Issue #21918,2018-07-24 22:02:05,jreback,elmq0022,,,"['MultiIndex', 'Testing']",0.24.0,https://github.com/pandas-dev/pandas/pull/21928
+341503103,"#### Code Sample, a copy-pastable example if possible
+
+Importing pandas==0.23 with Anaconda's gcc environment raises an ImportError.
+
+In order to reproduce
+```
+conda install gcc pandas
+python -c ""import pandas""
+```
+which results in
+
+```
+Python 3.6.0 |Continuum Analytics, Inc.| (default, Dec 23 2016, 12:22:00) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import pandas as pd
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/__init__.py"", line 42, in <module>
+    from pandas.core.api import *
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/api.py"", line 10, in <module>
+    from pandas.core.groupby.groupby import Grouper
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/groupby/__init__.py"", line 2, in <module>
+    from pandas.core.groupby.groupby import (
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/groupby/groupby.py"", line 49, in <module>
+    from pandas.core.frame import DataFrame
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/frame.py"", line 74, in <module>
+    from pandas.core.series import Series
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/series.py"", line 3981, in <module>
+    Series._add_series_or_dataframe_operations()
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/generic.py"", line 8897, in _add_series_or_dataframe_operations
+    from pandas.core import window as rwindow
+  File ""/home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/core/window.py"", line 36, in <module>
+    import pandas._libs.window as _window
+ImportError: /home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/_libs/../../../../libstdc++.so.6: version `GLIBCXX_3.4.21' not found (required by /home/keisukefujii/anaconda3/envs/fac/lib/python3.6/site-packages/pandas/_libs/window.cpython-36m-x86_64-linux-gnu.so)
+```
+
+I confirmed that with pandas==0.22, there is no problem.
+
+I think it is an issue around cython, but I am not sure what changes in pandas causes this problem.
+I also tried to update / downdate cython, but it did not solve this problem.
+
+#### Problem description
+
+Should not raise an Error.
+
+
+#### Output of ``pd.show_versions()``
+
+<details>
+
+INSTALLED VERSIONS
+------------------
+commit: None
+python: 3.6.0.final.0
+python-bits: 64
+OS: Linux
+OS-release: 4.4.0-130-generic
+machine: x86_64
+processor: x86_64
+byteorder: little
+LC_ALL: None
+LANG: en_US.UTF-8
+LOCALE: en_US.UTF-8
+
+pandas: 0.22.0
+pytest: 3.6.2
+pip: 10.0.1
+setuptools: 39.2.0
+Cython: 0.28.3
+numpy: 1.14.5
+scipy: None
+pyarrow: None
+xarray: 0.10.7
+IPython: None
+sphinx: None
+patsy: None
+dateutil: 2.7.3
+pytz: 2018.5
+blosc: None
+bottleneck: None
+tables: None
+numexpr: None
+feather: None
+matplotlib: None
+openpyxl: None
+xlrd: None
+xlwt: None
+xlsxwriter: None
+lxml: None
+bs4: None
+html5lib: None
+sqlalchemy: None
+pymysql: None
+psycopg2: None
+jinja2: None
+s3fs: None
+fastparquet: None
+pandas_gbq: None
+pandas_datareader: None
+>>> 
+
+</details>
+",2018-07-17 00:30:32,3,2018-07-16 12:42:44,https://github.com/pandas-dev/pandas/issues/21929,21929,closed,Conflict with anaconda's gcc,2018-07-17 00:30:32,fujiisoup,fujiisoup,,,['Build'],,
+341508494,xref #18262,2018-07-25 10:31:37,6,2018-07-16 12:59:18,https://github.com/pandas-dev/pandas/pull/21930,21930,closed,DEPR: Series.compress,2018-07-26 13:16:43,jreback,TomAugspurger,,,['Deprecate'],0.24.0,https://github.com/pandas-dev/pandas/pull/21930
+341513117,"#### Code Sample, a copy-pastable example if possible
+
+```python
+test = pd.DataFrame({'closing_mois': {6483: 'juillet',
+  19771: 'avril',
+  19105: 'avril',
+  8025: 'novembre',
+  22642: 'mai',
+  1216: 'juillet',
+  21634: 'décembre',
+  19230: 'décembre',
+  11429: 'décembre',
+  24755: 'juin'},
+ 'closing_week': {6483: 28,
+  19771: 16,
+  19105: 16,
+  8025: 48,
+  22642: 20,
+  1216: 31,
+  21634: 49,
+  19230: 49,
+  11429: 52,
+  24755: 25},
+ 'montant': {6483: 15830,
+  19771: 13637,
+  19105: 28197,
+  8025: 42671,
+  22642: 41290,
+  1216: 575,
+  21634: 898,
+  19230: 13814,
+  11429: 2006,
+  24755: 40633}})
+test.groupby([""closing_mois"", ""closing_week""])[""montant""].sum()
+mois = OrderedDict({1:""janvier"", 2:""février"", 3:""mars"", 4:""avril"", 5: ""mai"", 6:""juin"", 7:""juillet"", 8:""août"", 9:""septembre"", 10:""octobre"", 11:""novembre"", 12:""décembre""})
+cat  = pd.Categorical(list(mois.values()), ordered=True)
+test.closing_mois = test.closing_mois.astype(cat)
+test.pivot_table(index=""closing_mois"", columns=""closing_week"", values=""montant"", aggfunc=pd.Series.sum)
+
+```
+#### Problem description
+
+The pivot table doesn't give the same output as the groupby. Leading to 2 differents output for the same logical calculus.
+
+#### Expected Output
+closing_week       16       20       25       28     31       48       49  \
+closing_mois                                                                
+janvier           NaN      NaN      NaN      NaN    NaN      NaN      NaN   
+février           NaN      NaN      NaN      NaN    NaN      NaN      NaN   
+mars              NaN      NaN      NaN      NaN    NaN      NaN      NaN   
+avril         41834.0      NaN      NaN      NaN    NaN      NaN      NaN   
+mai               NaN  41290.0      NaN      NaN    NaN      NaN      NaN   
+juin              NaN      NaN  40633.0      NaN    NaN      NaN      NaN   
+juillet           NaN      NaN      NaN  15830.0  575.0      NaN      NaN   
+août              NaN      NaN      NaN      NaN    NaN      NaN      NaN   
+septembre         NaN      NaN      NaN      NaN    NaN      NaN      NaN   
+octobre           NaN      NaN      NaN      NaN    NaN      NaN      NaN   
+novembre          NaN      NaN      NaN      NaN    NaN  42671.0      NaN   
+décembre          NaN      NaN      NaN      NaN    NaN      NaN  14712.0   
+
+closing_week      52  
+closing_mois          
+janvier          NaN  
+février          NaN  
+mars             NaN  
+avril            NaN  
+mai              NaN  
+juin             NaN  
+juillet          NaN  
+août             NaN  
+septembre        NaN  
+octobre          NaN  
+novembre         NaN  
+décembre      2006.0  
+#### Output of ``pd.show_versions()``
+
+INSTALLED VERSIONS
+------------------
+commit: None
+python: 3.6.5.final.0
+python-bits: 64
+OS: Darwin
+OS-release: 17.7.0
+machine: x86_64
+processor: i386
+byteorder: little
+LC_ALL: None
+LANG: ”en_US.UTF-8″
+LOCALE: None.None
+
+pandas: 0.23.0
+pytest: 3.5.1
+pip: 10.0.1
+setuptools: 39.2.0
+Cython: 0.28.2
+numpy: 1.14.3
+scipy: 1.1.0
+pyarrow: None
+xarray: None
+IPython: 6.4.0
+sphinx: 1.7.4
+patsy: 0.5.0
+dateutil: 2.7.3
+pytz: 2018.4
+blosc: None
+bottleneck: 1.2.1
+tables: 3.4.3
+numexpr: 2.6.5
+feather: None
+matplotlib: 2.2.2
+openpyxl: 2.5.3
+xlrd: 1.1.0
+xlwt: 1.2.0
+xlsxwriter: 1.0.4
+lxml: 4.2.1
+bs4: 4.6.0
+html5lib: 1.0.1
+sqlalchemy: 1.2.7
+pymysql: None
+psycopg2: None
+jinja2: 2.10
+s3fs: None
+fastparquet: None
+pandas_gbq: None
+pandas_datareader: None
+
+[paste the output of ``pd.show_versions()`` here below this line]
+
+</details>
+",2018-07-16 15:18:48,5,2018-07-16 13:12:17,https://github.com/pandas-dev/pandas/issues/21931,21931,closed, categorical column bugs pivot_table,2018-07-16 16:35:32,gfyoung,romainjouin,,,"['Groupby', 'Usage Question']",,

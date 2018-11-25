@@ -1,0 +1,299 @@
+,body,created_at,updated_at,parent
+142689649,"It seems OK to me. I assume we still have at least one test that tests the version with an RDD argument!
+",2015-09-23 18:28:51,2015-09-23 18:28:51,107977847
+142690747,"@srowen So this changes it so that all of the ml tests that created a Dataframe using an RDDs of Rows now use List's of rows as input to the Dataframe constructor, but in the Dataframe constructor tests both are tested.
+",2015-09-23 18:33:36,2015-09-23 18:33:36,107977847
+142699766,"  [Test build #42915 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42915/console) for   PR 8886 at commit [`1b45c36`](https://github.com/apache/spark/commit/1b45c368c5c85bb72f89424069f1e31fa7800107).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-23 19:07:00,2015-09-23 19:07:00,107977847
+142701746,"  [Test build #42916 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42916/console) for   PR 8886 at commit [`4bf4ae6`](https://github.com/apache/spark/commit/4bf4ae67970e838a1aad3bea18238ada9cb89bbe).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-23 19:16:05,2015-09-23 19:16:05,107977847
+142733640,"cc'ing a few people: @mccheah (who wrote the original preemption code), @JoshRosen @andrewor14 (not sure who between you guys is reviewing this area these days).
+
+re: testing, I added one unit test but it's far from comprehensive; it seems pretty hard to unit test this area of the code. I tested this mostly on a real cluster, with a low-priority app running long tasks being preempted by a quick-running high priority app. Tasks were preempted in the long-running app, and even with several preemption cycles, the app eventually finished successfully.
+",2015-09-23 21:24:23,2015-09-23 21:24:23,108009077
+142737927,"LGTM
+",2015-09-23 21:39:19,2015-09-23 21:39:19,108009709
+142740144,"hmm. retest this please.
+",2015-09-23 21:48:36,2015-09-23 21:48:36,108009077
+142749108,"LGTM except indentation. The test for creating DataFrame from JavaRDD should live in DataFrame's unit tests.
+",2015-09-23 22:32:05,2015-09-23 22:32:05,107977847
+142758762,"cc @yhuai 
+",2015-09-23 23:25:30,2015-09-23 23:25:30,108025798
+142760714,"  [Test build #42932 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42932/console) for   PR 8886 at commit [`a668f0d`](https://github.com/apache/spark/commit/a668f0dddbacbe7edfab1550f31db1be88ea6ca8).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-23 23:40:46,2015-09-23 23:40:46,107977847
+142761034,"  [Test build #42924 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42924/console) for   PR 8888 at commit [`c910d0b`](https://github.com/apache/spark/commit/c910d0b46d54b549babd6b72c8ed032c61bc331d).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-23 23:41:41,2015-09-23 23:41:41,108009709
+142763573,"  [Test build #42925 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42925/console) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-23 23:55:39,2015-09-23 23:55:39,108009709
+142763862,"  [Test build #42923 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42923/console) for   PR 8887 at commit [`5b90150`](https://github.com/apache/spark/commit/5b90150a45421c11212de07970b2705412ad32e4).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-23 23:57:34,2015-09-23 23:57:34,108009077
+142764288,"  [Test build #1803 has started](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1803/consoleFull) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+",2015-09-24 00:00:25,2015-09-24 00:00:25,108009709
+142764383,"  [Test build #1804 has started](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1804/consoleFull) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+",2015-09-24 00:01:15,2015-09-24 00:01:15,108009709
+142764537,"  [Test build #1799 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1799/console) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 00:02:23,2015-09-24 00:02:23,108009709
+142764549,"  [Test build #1806 has started](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1806/consoleFull) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+",2015-09-24 00:02:28,2015-09-24 00:02:28,108009709
+142764634,"  [Test build #1805 has started](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1805/consoleFull) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+",2015-09-24 00:03:01,2015-09-24 00:03:01,108009709
+142764726,"  [Test build #1800 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1800/console) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 00:03:47,2015-09-24 00:03:47,108009709
+142767433,"  [Test build #1802 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1802/console) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 00:23:12,2015-09-24 00:23:12,108009709
+142767783,"  [Test build #1801 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1801/console) for   PR 8888 at commit [`ed36351`](https://github.com/apache/spark/commit/ed36351dfbe7bc3cf88693aa784131319063089f).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 00:26:09,2015-09-24 00:26:09,108009709
+142769028,"  [Test build #42927 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42927/console) for   PR 8887 at commit [`5b90150`](https://github.com/apache/spark/commit/5b90150a45421c11212de07970b2705412ad32e4).
+- This patch **fails SparkR unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 00:37:13,2015-09-24 00:37:13,108009077
+142774336,"cc @liancheng 
+",2015-09-24 01:05:56,2015-09-24 01:05:56,108025798
+142774667,"  [Test build #42934 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42934/console) for   PR 8889 at commit [`798bc73`](https://github.com/apache/spark/commit/798bc73c78142f725820202adcfcfe85fe14005b).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 01:07:54,2015-09-24 01:07:54,108025798
+142775474,"cc @pwendell for review
+",2015-09-24 01:15:37,2015-09-24 01:15:37,108037482
+142775581,"  [Test build #42945 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42945/console) for   PR 8889 at commit [`2e21513`](https://github.com/apache/spark/commit/2e21513c123c6b56b68204ea1cb60a3be62f77cc).
+- This patch **fails Scala style tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 01:16:45,2015-09-24 01:16:45,108025798
+142778002,"cc @pwendell 
+",2015-09-24 01:30:16,2015-09-24 01:30:16,108039068
+142778874,"By the way @JoshRosen this seems to run core tests like `SecurityManagerSuite` even though it touches only SQL stuff. Just FYI.
+",2015-09-24 01:36:04,2015-09-24 01:36:04,108009709
+142779662,"https://github.com/apache/spark/blob/master/core/src/main/java/org/apache/spark/util/collection/unsafe/sort/UnsafeExternalSorter.java#L138 Seems reserve the data page only if the `existingInMemorySorter` is unset, however, SPARK-474 is not this case right? As it follows the sort merge join operator.
+",2015-09-24 01:39:39,2015-09-24 01:39:39,108009709
+142780195,"@andrewor14, it's running core tests because you changed `core/src/main/java/org/apache/spark/util/collection/unsafe/sort/UnsafeExternalSorter.java`
+",2015-09-24 01:45:07,2015-09-24 01:45:07,108009709
+142780293,"cc @pwendell 
+",2015-09-24 01:46:04,2015-09-24 01:46:04,108040535
+142780326,"LGTM
+",2015-09-24 01:46:21,2015-09-24 01:46:21,108040255
+142780352,"I've merged this.
+",2015-09-24 01:46:39,2015-09-24 01:46:39,108040535
+142780755,"@chenghao-intel SPARK-10474 is caused by an aggregate falling back to sort-based aggregation. In this case we don't acquire the page in the constructor, but we do acquire it when we insert into the sorter later.
+",2015-09-24 01:50:28,2015-09-24 01:50:28,108009709
+142781320,"I've merged this.
+",2015-09-24 01:53:59,2015-09-24 01:53:59,108039068
+142781447,">  it's running core tests because you changed core/src/main/java/org/apache/spark/util/collection/unsafe/sort/UnsafeExternalSorter.java
+
+Ah yes never mind. I didn't realize it was in core.
+",2015-09-24 01:55:09,2015-09-24 01:55:17,108009709
+142781478,"  [Test build #1807 has started](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1807/consoleFull) for   PR 8888 at commit [`2dc34c3`](https://github.com/apache/spark/commit/2dc34c3b8ed73b3a0d223e2cd0fc26b740f442d5).
+",2015-09-24 01:55:23,2015-09-24 01:55:23,108009709
+142781672,"Is this for a different branch? Why a new PR for the same thing?
+",2015-09-24 01:57:18,2015-09-24 01:57:18,108040255
+142782295,"@harishreedharan I took over the PR that @zsxwing was doing to speed up the process... 1.5.1 to be cut any time.
+",2015-09-24 02:02:54,2015-09-24 02:02:54,108040255
+142783250,"  [Test build #42949 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42949/console) for   PR 8893 at commit [`d753294`](https://github.com/apache/spark/commit/d753294150cb51238121f00b5933df007de968b8).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 02:12:47,2015-09-24 02:12:47,108040457
+142783383,"@rxin I think you should upgrade R/pkg/DESCRIPTION - otherwise LGTM.
+",2015-09-24 02:14:03,2015-09-24 02:14:03,108037482
+142783827,"@andrewor14 that's actually what I mean, if we didn't reserve the memory when creating the down streaming operator, we probably never get the chance to acquire the page when inserting records to `sorter`, as the upstreaming operator (like SMJ) probably eat out all of the memory, which even lead to the hash aggregation switching to sort-based aggregation when first record comes. Do you think that's possible?
+",2015-09-24 02:19:03,2015-09-24 02:19:03,108009709
+142786202,"@chenghao-intel but we do reserve the page in advance. See `TungstenAggregate`: https://github.com/apache/spark/blob/084e4e126211d74a79e8dbd2d0e604dd3c650822/sql/core/src/main/scala/org/apache/spark/sql/execution/aggregate/TungstenAggregate.scala#L77
+",2015-09-24 02:32:42,2015-09-24 02:32:42,108009709
+142786251,"  [Test build #42942 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42942/console) for   PR 8888 at commit [`2dc34c3`](https://github.com/apache/spark/commit/2dc34c3b8ed73b3a0d223e2cd0fc26b740f442d5).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 02:33:03,2015-09-24 02:33:03,108009709
+142786420,"OK it passed tests. I'm merging this into master 1.5.
+",2015-09-24 02:34:01,2015-09-24 02:34:01,108009709
+142786491,"  [Test build #1808 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1808/console) for   PR 8888 at commit [`2dc34c3`](https://github.com/apache/spark/commit/2dc34c3b8ed73b3a0d223e2cd0fc26b740f442d5).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 02:34:48,2015-09-24 02:34:48,108009709
+142787624,"I've merged this.
+",2015-09-24 02:46:10,2015-09-24 02:46:10,108037482
+142787694,"I'm not sure if it is a good idea to call reset for every object. We already reset every 1000, dont' we?
+",2015-09-24 02:47:07,2015-09-24 02:47:07,108045185
+142788924,"Can one of the admins verify this patch?
+",2015-09-24 02:52:11,2015-09-24 02:52:11,108046084
+142788927,"Merging this master and 1.5
+",2015-09-24 02:52:12,2015-09-24 02:52:12,108040255
+142788937,"I've merged this.
+",2015-09-24 02:52:19,2015-09-24 02:52:19,108040255
+142789422,"How about this version ?
+Respond to OutOfMemoryError and retry.
+",2015-09-24 02:58:07,2015-09-24 02:58:07,108045185
+142789630,"  [Test build #42948 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42948/console) for   PR 8892 at commit [`fef3a0d`](https://github.com/apache/spark/commit/fef3a0dd22ea6e30998feedb89a4b5bdb3768411).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 02:59:56,2015-09-24 02:59:56,108040255
+142790277,"Can you please point out which thread this is coming from and create a JIRA ticket?
+",2015-09-24 03:01:39,2015-09-24 03:01:39,108045185
+142791315,"Jay said he used Spark 1.5.0
+So the reset after 100 writeObject() calls was in effect.
+
+This means we should reset more often.
+
+I prefer my first version.
+",2015-09-24 03:04:00,2015-09-24 03:04:00,108045185
+142792133,"http://search-hadoop.com/ hasn't indexed the thread yet.
+Will create JIRA if people think my PR would alleviate the situation.
+",2015-09-24 03:06:08,2015-09-24 03:06:08,108045185
+142793223,"@weberxie this seems to be opened by mistake. Would you mind closing this patch?
+",2015-09-24 03:12:01,2015-09-24 03:12:01,108046084
+142795432,"  [Test build #42954 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42954/console) for   PR 8896 at commit [`8104d47`](https://github.com/apache/spark/commit/8104d4777709b6ab16f0d36d0ac4d66af0cdf2fb).
+- This patch **fails MiMa tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 03:29:58,2015-09-24 03:29:58,108045185
+142795595,"I'm so sorry for this wrong patch.
+",2015-09-24 03:31:05,2015-09-24 03:31:05,108046084
+142801966,"The MiMa test failure was due to:
+
+```
+[error] (core/*:mimaPreviousClassfiles) sbt.ResolveException: download failed: org.apache.spark#spark-unsafe_2.10;1.5.0!spark-unsafe_2.10.jar
+[error] Total time: 148 s, completed Sep 23, 2015 8:29:58 PM
+[error] running /home/jenkins/workspace/SparkPullRequestBuilder/dev/mima ; received return code 1
+```
+",2015-09-24 03:54:50,2015-09-24 03:54:50,108045185
+142802311,"  [Test build #42947 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42947/consoleFull) for   PR 8891 at commit [`c4e6348`](https://github.com/apache/spark/commit/c4e634804eff8bfa4bc4a77ae558a4c8fe427b0c).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 03:59:37,2015-09-24 03:59:37,108039068
+142806924,"  [Test build #1811 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1811/console) for   PR 8888 at commit [`2dc34c3`](https://github.com/apache/spark/commit/2dc34c3b8ed73b3a0d223e2cd0fc26b740f442d5).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 04:14:19,2015-09-24 04:14:19,108009709
+142807375,"**[Test build #42946 timed out](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42946/console)**     for PR 8890 at commit [`d2dfae1`](https://github.com/apache/spark/commit/d2dfae13658ad562c63d50b0209d1d22045cf829)     after a configured wait of `175m`.
+",2015-09-24 04:20:18,2015-09-24 04:20:18,108037482
+142809622,"  [Test build #1810 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1810/console) for   PR 8888 at commit [`2dc34c3`](https://github.com/apache/spark/commit/2dc34c3b8ed73b3a0d223e2cd0fc26b740f442d5).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 04:37:14,2015-09-24 04:37:14,108009709
+142810091,"  [Test build #1809 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1809/console) for   PR 8888 at commit [`2dc34c3`](https://github.com/apache/spark/commit/2dc34c3b8ed73b3a0d223e2cd0fc26b740f442d5).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 04:38:39,2015-09-24 04:38:39,108009709
+142810357,"ok to test
+",2015-09-24 04:40:40,2015-09-24 04:40:40,108055712
+142811330,"Now it throws,
+
+```
+org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: hdfs://localhost:9000/user/navis/a wrong path
+    at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:285)
+    at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:228)
+    at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:313)
+    at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:201)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+    at scala.Option.getOrElse(Option.scala:120)
+    at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
+    at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+    at scala.Option.getOrElse(Option.scala:120)
+    at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
+    at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+    at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+    ...
+```
+",2015-09-24 04:51:17,2015-09-24 04:51:17,108058053
+142811363,"Thank you @andrewor14 for the explanation. I believe you're talking about to reserve the data page in advanced via the `UnsafeFixedWidthAggregationMap.map` (BytesToBytesMap), which will reserve the data page in its constructor. 
+Everything looks reasonable to me now, the only concern is the performance, since only a single data page available for the sort-based aggregation. Anyway, it's not related to this fix.
+",2015-09-24 04:51:53,2015-09-24 04:51:53,108009709
+142812058,"  [Test build #42957 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42957/console) for   PR 8898 at commit [`cdc7448`](https://github.com/apache/spark/commit/cdc744808667f9c077510d360a1b72e69ebd3797).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 05:00:49,2015-09-24 05:00:49,108055712
+142814391,"  [Test build #42958 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42958/console) for   PR 8899 at commit [`e0e5c26`](https://github.com/apache/spark/commit/e0e5c26d76eb55c6dae8d707c4b69caf294337b7).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 05:21:15,2015-09-24 05:21:15,108058053
+142815024,"  [Test build #42961 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42961/console) for   PR 8898 at commit [`a2e7f75`](https://github.com/apache/spark/commit/a2e7f75dee04b1f1ad21658fb3425dfd8cbb14cb).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 05:29:00,2015-09-24 05:29:00,108055712
+142817169,"  [Test build #42951 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42951/console) for   PR 8895 at commit [`d44672e`](https://github.com/apache/spark/commit/d44672e3c8cf068c899392a870efa86e274bfde3).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 05:41:43,2015-09-24 05:41:43,108043677
+142818254,"Merged into master. Thanks!
+",2015-09-24 05:49:34,2015-09-24 05:49:34,107977847
+142818484,"  [Test build #42952 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42952/console) for   PR 8896 at commit [`1d78e90`](https://github.com/apache/spark/commit/1d78e9044cf2033b010d765fee5424746007fd52).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 05:52:25,2015-09-24 05:52:25,108045185
+142828033,"  [Test build #42956 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42956/console) for   PR 8896 at commit [`ca4a2d5`](https://github.com/apache/spark/commit/ca4a2d50b0a81808dc21c59fdbe3d46a08851f55).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 06:41:25,2015-09-24 06:41:25,108045185
+142834649,"  [Test build #42964 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42964/console) for   PR 8901 at commit [`bd3b8cc`](https://github.com/apache/spark/commit/bd3b8cc3779f78ced51e8526843d128023382e31).
+- This patch **fails MiMa tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 07:00:35,2015-09-24 07:00:35,108068802
+142836400,"  [Test build #1812 has finished](https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1812/console) for   PR 8900 at commit [`a8e23f5`](https://github.com/apache/spark/commit/a8e23f5482f2567567e7a20d6b635997f58d61a1).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 07:12:37,2015-09-24 07:12:37,108059009
+142837186,"  [Test build #42960 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42960/console) for   PR 8900 at commit [`a8e23f5`](https://github.com/apache/spark/commit/a8e23f5482f2567567e7a20d6b635997f58d61a1).
+- This patch **passes all tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 07:19:02,2015-09-24 07:19:02,108059009
+142837379,"  [Test build #42962 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42962/console) for   PR 8889 at commit [`d317fb8`](https://github.com/apache/spark/commit/d317fb8b0d21ba387894962a168afdf9346b74d2).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 07:20:41,2015-09-24 07:20:41,108025798
+142845443,"  [Test build #42967 has finished](https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/42967/console) for   PR 8899 at commit [`8cee279`](https://github.com/apache/spark/commit/8cee279cadb9f090b964a3e358b94a249fd475d1).
+- This patch **fails Spark unit tests**.
+- This patch merges cleanly.
+- This patch adds no public classes.
+",2015-09-24 07:57:23,2015-09-24 07:57:23,108058053
