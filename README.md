@@ -166,7 +166,7 @@ constraints, as we consider the other questions to be more important. If time
 allows it, we might be able to explore this at a later stage by checking the
 `patches` Gitential datasets.
 
-# Dataset
+# Datasets
 - [Gitential Datasets for Open Source
   Projects](https://github.com/gitential/datasets) is the main dataset
   we're using. It covers 24 popular open source projects. This provides us with
@@ -177,7 +177,8 @@ allows it, we might be able to explore this at a later stage by checking the
   for instance, someone who mostly refactors code will probably have more
   removed lines per commit), date and so on.
 - We also make use of the [GitHub API](https://developer.github.com/v3/)
-  to retrieve a project's issues/pull requests and comments.
+  to enrich our main dataset, by retrieving each project's issues/pull requests
+  and comments.
 
 To be able to relate the projects to their community on other websites, we also
 use the following datasets:
