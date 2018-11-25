@@ -14,6 +14,48 @@ source project. This might allow us to define what a successful project is,
 and formulate some guidelines that might be beneficial to other projects'
 success.
 
+# Notebooks
+
+- `data_pipeline.ipynb`: this is the main notebook explaining our data pipeline
+  (milestone 2).
+- `retrieve_gitential_datasets.ipynb`: this notebook handles the retrieval of
+  the Gitential datasets (our main dataset). This is because the Gitential
+  dataset is actually organized/split in several directories, with links to
+  download the full dataset for each directory. (The dataset on the EPFL
+  cluster only contains samples.)
+- `retrieve_additional_data_github.ipynb`: this notebook handles the retrieval
+  and creation of two related datasets (Github issues/pull requests and their
+  comments) using the Github API, in order to enrich our main dataset
+
+# Data files
+
+We include samples of our data in this git repo. For more info about our
+datasets, please refer to `data_pipeline.ipynb`.
+
+```
+data/
+    datasets/ <- See `retrieve_gitential_datasets.ipynb` for details
+        project1/
+            blames.json.gz
+            commits.json.gz
+            patches.json.gz
+            tags.json.gz
+        project2/
+            ...
+    gitential_datasets_repo/ <- Gitential dataset (original, incomplete)
+        project1/
+            README.md
+            blames.sample.csv
+            commits.sample.csv
+            patches.sample.csv
+            tags.sample.csv
+        project2/
+            ...
+    github_comments.csv <- See `data_pipeline.ipynb` / `retrieve_additional_data_github.ipynb` for details
+    github_issues.csv  <- See `data_pipeline.ipynb` / `retrieve_additional_data_github.ipynb` for details
+    reddit_results.txt  <- See `data_pipeline.ipynb` for more info
+```
+
 # Research questions
 - *How many contributors are there, and are there time patterns to when they
   submit their changes?*
