@@ -1,36 +1,40 @@
 # Analyzing Success
 
-# Abstract
-Open source projects are the backbone of today's technology. We find them in
-programming languages that are at the core of any software (e.g. Luna or Rust),
-frameworks that shape the web (e.g. Laravel, React or Angular), toolkits that
-help scientists handle and analyse data (e.g. numpy, pandas) or development
-tools used by all software teams around the world (e.g. git), to give a few
-examples.
+# [Data story](https://ada-how-i-met-your-data.github.io/)
 
-Do successful open source projects have common patterns? Through this project,
-we hope to gain some insight into what contributes to the success of an open
-source project. This might allow us to define what a successful project is,
-and formulate some guidelines that might be beneficial to other projects'
-success.
+# Abstract
+ Open source projects are the backbone of today's technology . We find them in
+ programming languages that are at the core of any software (e.g. Luna or
+ Rust), frameworks that shape the web (e.g. Laravel, React or Angular),
+ toolkits that help scientists handle and analyse data (e.g. numpy, pandas) or
+ development tools used by all software teams around the world (e.g. git), to
+ name a few examples.
+
+ **Do successful open source projects have common patterns?**
+
+Through this project, we hope to gain some insights into what contributes to
+the success of an open source project. This might allow us to identify common
+patterns among successful projects, and formulate some guidelines that might
+be beneficial to other projects' success.
 
 # Notebooks
 
-- `data_pipeline.ipynb`: this is the main notebook explaining our data pipeline
-  (milestone 2).
+- `milestone3.ipynb`: this is the main notebook. It includes our data
+  pipeline, methodology and analysis (milestone 3).
 - `retrieve_gitential_datasets.ipynb`: this notebook handles the retrieval of
   the Gitential datasets (our main dataset). This is because the Gitential
   dataset is actually organized/split in several directories, with links to
   download the full dataset for each directory. (The dataset on the EPFL
-  cluster only contains samples.)
+  cluster only contains samples.) (Unchanged from milestone 2.)
 - `retrieve_additional_data_github.ipynb`: this notebook handles the retrieval
   and creation of two related datasets (Github issues/pull requests and their
-  comments) using the Github API, in order to enrich our main dataset
+  comments) using the Github API, in order to enrich our main dataset.
+  (Unchanged from milestone 2.)
 
 # Data files
 
 We include samples of our data in this git repo. For more info about our
-datasets, please refer to `data_pipeline.ipynb`.
+datasets, please refer to `milestone3.ipynb`.
 
 ```
 data/
@@ -51,97 +55,58 @@ data/
             tags.sample.csv
         project2/
             ...
-    github_comments.csv <- See `data_pipeline.ipynb` / `retrieve_additional_data_github.ipynb` for details
-    github_issues.csv  <- See `data_pipeline.ipynb` / `retrieve_additional_data_github.ipynb` for details
-    reddit_results.txt  <- See `data_pipeline.ipynb` for more info
+    github_comments.csv <- See `milestone3.ipynb` / `retrieve_additional_data_github.ipynb` for details
+    github_issues.csv  <- See `milestone3.ipynb` / `retrieve_additional_data_github.ipynb` for details
+    reddit_results.txt  <- See `milestone3.ipynb` for more info
 ```
 
 # Research questions
-- *How many contributors are there, and are there time patterns to when they
-  submit their changes?*
 
-**Gitential data**: we plan to look at the number of unique authors
-(`author_name` and `author_name_dedup`, whichever is not NaN) for each project,
-and analyze the `committer_time` for each person and globally.
+1. **How many contributors are there for each repository?**
 
----
+2. **Can we find a pattern that differentiates authors and committers?**
 
-- *Is there a certain roles distribution among contributors to the project? For
-  example, do successful projects have people who focus on refactoring code,
-  adding features or fixing bugs?*
+    1. **Are authors and committers the same?**
 
-**Gitential data**: we plan to answer this by analysing the commits data. For
-example, `loc_d`, `loc_i`, `comp_d`, and `comp_i` can be used to detect people
-who focus on refactoring code or enforce style guidelines. `nfiles` could
-identify people who focus on small or large amounts of files at once, which
-could indicate bug fixes/small features versus larger feature
-additions/overhauls. Commit messages (`message`) can be parsed to identify
-several types of commits. For example: commits that fix issues (e.g. by looking
-at keywords such as 'Closes' or 'Fixes'), or commits that merge another
-person's pull requests (by looking for 'Merges ...' commits).
+    2. **If not, how do we explain the difference? Can this be attributed to a specific role such as "Supervising commits"?**
 
----
+3. **Is the frequency of the commits similar for the projects?**
 
-- *Are there certain patterns to the commits, such as commit messages length,
-  size or frequency of the commits, etc?*
+4. **Are there time patterns to when contributors submit their changes**
 
-**Gitential data**: we can analyse possible patterns in the columns `message`,
-`nfiles` (for the size of the commits) and `committer_time` (for the
-frequency).
+5. **Are contributors part of a small community/team (e.g. real-life development teams)?**
 
----
+6. **Is there a certain roles distribution among contributors to the project? For example, do successful projects have people who focus on refactoring code, adding features or fixing bugs?**
 
-- *Are contributors part of a small community/team (e.g. real-life development
-  teams), or are they independent contributors?*
+    1. Based on the number of lines removed/added (per author per project).
+    2. Based on commit comments.
+    3. Based on commit summary messages' length.
 
-**Gitential data**: we plan to analyze this by checking `committer_email` and
-`committer_email_dedup` and parsing the domain of the email (e.g. people from
-the Microsoft team will have `@microsoft` emails), whereas more diverse people
-are more likely to have their unique email hosts or common email hosts (e.g.
-`@hotmail` or `@gmail`).
+7. **Can we gain some insight from GitHub issues for a project?**
 
----
+    1. Based on the percentage of closed issues per project.
+    2. Based on the resolution time of the issues.
+    3. Based on which users handle issues.
 
-- *Can we relate the success / popularity to a responsive / helpful community
-  (e.g. StackOverflow / Reddit subreddits)?*
+8. **Can sentiment analysis on the commit messages / issues provide any insights?**
 
-**StackOverflow dataset**: we plan to count the number of questions related to
-each of these projects (by making use of `_Tags`), and compute the average
-response time (using `_CreationDate` and `_PostTypeId`, to get the difference
-between the question and the first answer). We also plan to check the response
-time of accepted responses (not just the first answer), by using the
-`_AcceptedAnswerId` column. Additionally, `_AnswerCount` can also be used as an
-indicator of a thriving community.
+    1. Based on git commit messages for each project.
+    2. Based on the body of each project's GitHub issues.
+    3. Based on the comments of each GitHub issue per project.
 
-**Reddit dataset**: we plan to count the number of posts and comments about
-each project, as well as posts in a subreddit for projects that have a
-subreddit dedicated to them. We might have to focus on certain
-programming-related subreddits to avoid false matches.
+9. **Can we relate the success / popularity to a responsive / helpful community (StackOverflow / Reddit subreddits)?**
 
----
+    1. **StackOverflow**:
+        1. Based on the number of questions related to each project.
+        2. Based on the percentage of resolved questions per project.
+        3. Based on the resolution time for questions for each project.
+    2. **Reddit**:
+        1. Based on the number of threads related to a project.
+        2. Based on the evolution of the number of threads over time.
 
-- *Can we gain some insight from GitHub issues for a project? For example, the
-  number of open/closed issues or the response time.*
+**Dropped research questions**:
 
-**GitHub API issues**: we plan to do this by looking at the columns `state`,
-`closed_at` and `created_at` (time for resolution), as well as `created_at` /
-`parent` for the comments to get the response time.
-
----
-
-- *Could sentimental analysis of commit messages or issue reports be
-  meaningful? (GitHub API comments)*
-
-**Gitential data**: we plan to analyze commit messages (`message`) with an
-Python library (NLTK).
-
-**GitHub API comments**: similarly, we plan to analyze issue body texts
-(`body`).
-
----
-
-- *Does the choice of programming language play a role in the success of a
-  project?*
+- **Does the choice of programming language play a role in the success of a project?**
 
 We were planning to check the `patches` Gitential datasets for this at first,
 but we decided to drop this idea after futher consideration, as a proper
@@ -149,22 +114,10 @@ statistical analysis would probably require thousands of Git projects (24 data
 points is not sufficient, since this is a very simple and one-dimensional data
 point).
 
----
-
-- *Similarly, can projects' licenses or codes of conduct provide us with some
-  insight?*
+- **Similarly, can projects' licenses or codes of conduct provide us with some insight?**
 
 We were planning to use the Github API to get data for this, but we decided to
 drop it as well for similar reasons as above.
-
----
-
-- *Are contributors focused around certain parts of the project?*
-
-**Gitential data**: we decided to postpone this for now due to potential time
-constraints, as we consider the other questions to be more important. If time
-allows it, we might be able to explore this at a later stage by checking the
-`patches` Gitential datasets.
 
 # Datasets
 - [Gitential Datasets for Open Source
@@ -187,7 +140,17 @@ use the following datasets:
   We search for keywords in posts' titles, comments and the names of subreddits
   to determine the popularity of a certain project.
 
-# A list of internal milestones up until project milestone 3
-- For our presentation, we plan to answer each of our research questions listed
-  above, in order to present a story that shows common patterns among
-  successful projects.
+# Group members' contributions
+
+We all worked on most tasks, except those specifically noted below. We would
+each try to solve the question alone, then meet and discuss our different
+approaches (in order to get different opinions and perspectives) to reach our
+final answer. We will do the same for the final presentation.
+
+The tasks that were handled individually were handled as follows:
+
+- Gaby: handled StackOverflow analysis, design of the data story.
+- Germain: building the GitHub dataset and the Reddit dataset, design of the
+  data story, and part of the interactive plots for the data story.
+- Jennifer: handled the sentiment analysis, design of the data story, and part
+  of the interactive plots for the data story.
